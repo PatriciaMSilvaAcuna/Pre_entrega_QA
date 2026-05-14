@@ -1,7 +1,5 @@
-## Tecnologías utilizadas
+selenium
+pytest
+webdriver-manager
+pytest-html
 
-- Python
-- Selenium
-- Pytest
-- ChromeDriver
-- Visual Studio Code
