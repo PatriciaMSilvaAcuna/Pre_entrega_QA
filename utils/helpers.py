@@ -27,7 +27,7 @@ def login(driver, username, password):
     #configuramos una espera para la carga de los elementos
 
     wait = WebDriverWait(driver,10)
-
+    #pasamos la url a buscar
     driver.get("https://www.saucedemo.com")
 
     # localizamos el username, para eso buscamos el selector.
@@ -36,5 +36,13 @@ def login(driver, username, password):
         EC.presence_of_element_located((By.ID,"user-name"))
     ).send_keys(username)
 
-    driver.find_element(By.ID,"password").send_keys(password)
-    driver.find_element(By.ID,"login-button").click()
+  
+   # Espera explícita para asegurar la presencia de los campos
+    wait.until(
+        EC.presence_of_element_located((By.ID, "password"))
+
+    ).send_keys(password)
+    wait.until(
+        EC.presence_of_element_located((By.ID, "login-button"))
+
+    ).click()
