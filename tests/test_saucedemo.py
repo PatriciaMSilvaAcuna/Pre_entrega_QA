@@ -36,3 +36,19 @@ def test_catalog_products( driver):
     
     
     print(f"Precio: {precio}")
+
+def test_add_to_cart(driver):
+    login(driver, "standard_user", "secret_sauce")
+    # primero confirmo que el btn  está en el DOM por eso el EC
+    
+    wait = WebDriverWait(driver,10)
+    #guardo en la variable todos lo elementos que tengas un elemento clickeable denominado 
+    # add to cart
+   
+    bnt_add = wait.until(
+        EC.element_to_be_clickable((By.XPATH,"//button[contains(text(),'Add to cart')]"))
+    )
+    
+    bnt_add.click()
+
+   
